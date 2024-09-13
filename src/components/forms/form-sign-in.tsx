@@ -32,7 +32,7 @@ export function FormSignIn() {
       router.push("/pos/menu");
       const user = {email: values.email, role: 'admin'};
       login(user);
-    } else if (values.email == 'unidad1@gmail.com' && values.password == 'unipass'){
+    } else if (values.email == 'UNDEFINED_USER' && values.password == '$s53d&#14s1'){
       router.push("/pos/menu");
       const user = {email: values.email, role: 'employee'};
       login(user);

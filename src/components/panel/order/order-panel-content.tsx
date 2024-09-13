@@ -17,7 +17,6 @@ export function OrderPanelContent() {
       setFilteredData(data);
     }
   }, [data]);
-  //const orders = getAllOrders(data); // quitar
 
   return (
     <div className="flex flex-col gap-4">

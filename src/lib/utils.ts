@@ -36,3 +36,42 @@ export function calculateAmount(data: any[], attribute: string) {
 export function getAllOrders(objetos: any[], attribute: string) {
   return objetos.reduce((acc, objeto) => acc.concat(objeto[attribute]), []);
 }
+
+export function saveToExcel(data: any[]) {
+  const fieldnames = ['productName', 'size', 'quantity', 'price', 'subTotal', 'total', 'paymentMethod', 'date', 'time'];
+    
+  const csvRows = [];
+  csvRows.push(fieldnames.join(',')); 
+
+  data.forEach(row => {
+    const createdAtTimestamp = parseInt(row.created_at) / 1000; // Convertir de milisegundos a segundos
+    const createdAtDate = new Date(createdAtTimestamp * 1000);
+
+    const date = createdAtDate.toISOString().split('T')[0];
+    const time = createdAtDate.toTimeString().split(' ')[0];
+    
+    const items = row.items;
+
+    items.forEach((item: any) => {
+        const newRow = [
+            item.productName,
+            item.size,
+            item.quantity,
+            item.price,
+            row.subTotal,
+            row.total,
+            row.paymentMethod,
+            date,
+            time
+        ].join(',');
+
+        csvRows.push(newRow); 
+    });
+  });
+
+  return csvRows;
+}
+
+export function saveToSummary(data: any[]) {
+  return 0;
+}

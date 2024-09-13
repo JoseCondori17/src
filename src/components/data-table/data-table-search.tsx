@@ -10,7 +10,7 @@ export function DataTableSearch<TData>({ table, columnName}: DataTableSearchProp
 
   return (
     <Input
-      placeholder="Buscar por nombre"
+      placeholder="Buscar por ID"
       value={(table.getColumn(columnName)?.getFilterValue() as string) ?? ""}
       onChange={(event) =>
         table.getColumn(columnName)?.setFilterValue(event.target.value)

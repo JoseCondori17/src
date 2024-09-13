@@ -6,8 +6,8 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 import { 
-  Bread01Icon, 
   BubbleTea01Icon, 
+  CherryIcon, 
   Dish01Icon, 
   FrenchFries02Icon, 
   IceCream02Icon 
@@ -53,12 +53,12 @@ export default function MenuPanelContent() {
             </div>
             <IceCream02Icon></IceCream02Icon>
           </TabsTrigger>
-          <TabsTrigger value="fritters" className="flex items-center gap-6 border rounded-lg p-3">
+          <TabsTrigger value="topping" className="flex items-center gap-6 border rounded-lg p-3">
             <div className="flex flex-col items-start">
-              <p>Churros</p>
-              <span className="opacity-55">{data?.filter((item: any) => item.category === 'fritters').length} items</span>
+              <p>Toppings</p>
+              <span className="opacity-55">{data?.filter((item: any) => item.category === 'topping').length} items</span>
             </div>
-            <Bread01Icon></Bread01Icon>
+            <CherryIcon></CherryIcon>
           </TabsTrigger>
           <TabsTrigger value="food" className="flex items-center gap-6 border rounded-lg p-3">
             <div className="flex flex-col items-start">
@@ -101,11 +101,11 @@ export default function MenuPanelContent() {
             </div>
           </ScrollArea>
         </TabsContent>
-        <TabsContent value="fritters" className="h-[calc(100vh-225px)] w-full">
+        <TabsContent value="topping" className="h-[calc(100vh-225px)] w-full">
           <ScrollArea className="h-full">
             <div className="grid grid-cols-3 gap-2">
               {
-                data?.filter((item: any) => item.category === 'fritters').map((item: any, index: number) => (
+                data?.filter((item: any) => item.category === 'topping').map((item: any, index: number) => (
                   <CardItemMenu key={index} productName={item.productName} description={item.productDescription} sizesPricing={item.sizesPricing}></CardItemMenu>
                 ))
               }

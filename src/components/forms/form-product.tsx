@@ -107,6 +107,7 @@ export function FormProduct({ products, id }: FormProductProps) {
                     <SelectItem value="food">Comida</SelectItem>
                     <SelectItem value="drink">Bebidas</SelectItem>
                     <SelectItem value="fritters">Churros</SelectItem>
+                    <SelectItem value="toppings">Toppings</SelectItem>
                     <SelectItem value="ice-cream">Helados</SelectItem>
                   </SelectContent>
                 </Select>

@@ -1,4 +1,5 @@
 import { CardPaymentMethod } from "@/components/cards/card-payment-method";
+import { CardOptions } from "@/components/cards/card-options";
 import { CardSummaryOrder } from "@/components/cards/card-summary-order";
 import { formatCurrency } from "@/lib/formats";
 import { calculateAmount, filterDate, filterMonth, filterPaymentMethod, getAllOrders } from "@/lib/utils";
@@ -10,14 +11,12 @@ interface OrderSummaryContentProps {
 
 export function OrderSummaryContent({filteredData, data}: OrderSummaryContentProps) {
   const now = new Date();
-  //const filterByDate = filterDate(data, now, "created_at");
+
   const filterByMonth = filterMonth(data, now, "created_at");
   const filterCash = filterPaymentMethod(filteredData, "cash", "paymentMethod");
   const filterMovil = filterPaymentMethod(filteredData, "phone", "paymentMethod");
   const filterCard = filterPaymentMethod(filteredData, "card", "paymentMethod");
-  //quitar
-  /* const orderByDate = getAllOrders(filterByDate, "orders"); 
-  const orderByMonth = getAllOrders(filterByMonth, "orders"); */
+
   const totalMonth = calculateAmount(filterByMonth, "total");
   const totalDay = calculateAmount(filteredData, "total");
   const totalCash = calculateAmount(filterCash, "total");
@@ -31,11 +30,14 @@ export function OrderSummaryContent({filteredData, data}: OrderSummaryContentPro
   ];
 
   return (
-    <div className="flex gap-4">
+    <div className="flex flex-col gap-2">
+      <div className="flex gap-4">
         <CardSummaryOrder title="Total de ventas del mes" amount={totalMonth} format={true}></CardSummaryOrder>
         <CardSummaryOrder title="Total de ventas del dia" amount={totalDay} format={true}></CardSummaryOrder>
         <CardSummaryOrder title="Cantidad de ordenes del dia" amount={totalOrders} format={false}></CardSummaryOrder>
         <CardPaymentMethod title="Metodos de pago" paymentMethods={paymentMethods}></CardPaymentMethod>
       </div>
+      <CardOptions data={filteredData}></CardOptions>
+    </div>
   );
 }

@@ -54,16 +54,12 @@ export function DataTableOverview<TData, TValue>({ columns, data, statuses, colu
   })
 
   const filteredRowModel = table.getFilteredRowModel();
-  //table.getFilteredRowModel()
   useEffect(() => {
     if (setFilteredData) {
       const filteredRows = filteredRowModel.rows;
       const filteredData = filteredRows.map(row => row.original);
       setFilteredData(filteredData as TData[]);
     }
-    /* const filteredRows = table.getFilteredRowModel().rows;
-    const filteredData = filteredRows.map(row => row.original);
-    setFilteredData(filteredData as TData[]); */
   }, [filteredRowModel, setFilteredData]);
 
   return (

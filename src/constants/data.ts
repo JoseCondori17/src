@@ -13,6 +13,11 @@ export const statusesProducts = {
       color: "bg-red-100"
     },
     {
+      value: "topping",
+      label: "Toppings",
+      color: "bg-blue-100"
+    },
+    {
       value: "ice-cream",
       label: "Helados",
       color: "bg-orange-100"
