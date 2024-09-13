@@ -1,11 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Button } from "../ui/button";
 import { Download01Icon, ChartBarLineIcon } from "hugeicons-react";
-import { saveToExcel, saveToSummary } from "@/lib/utils";
+import { cleanData, saveToSummary } from "@/lib/utils";
 
 export function CardOptions({data} : {data:any}){
   function handlerDownload() {
-    const tfdata = saveToExcel(data);
+    const tfdata = cleanData(data);
     const csvContent = tfdata.join('\n');
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
     const link = document.createElement('a');
@@ -18,7 +18,7 @@ export function CardOptions({data} : {data:any}){
     document.body.removeChild(link);
   }
   function handlerSummary() {
-    console.log("summary");
+    const tfdata = cleanData(data);
   }
 
   return (

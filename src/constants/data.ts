@@ -56,7 +56,33 @@ export const statusesOrders = {
       color: "bg-orange-100"
     },
   ],
-  created_at: [],
+  items: [
+    {
+      value: "drink",
+      label: "Bebidas",
+      color: "bg-green-100"
+    },
+    {
+      value: "fritters",
+      label: "Churros",
+      color: "bg-red-100"
+    },
+    {
+      value: "topping",
+      label: "Toppings",
+      color: "bg-blue-100"
+    },
+    {
+      value: "ice-cream",
+      label: "Helados",
+      color: "bg-orange-100"
+    },
+    {
+      value: "food",
+      label: "Comida",
+      color: "bg-gray-100"
+    },
+  ],
 }
 
 export const filtersOrders = [
@@ -64,8 +90,8 @@ export const filtersOrders = [
     value: 'paymentMethod',
     label: 'Metodo de pago',
   },
-  /* {
-    value: 'created_at',
-    label: 'Fecha'
-  } */
+  {
+    value: 'items',
+    label: 'Categoria'
+  }
 ]

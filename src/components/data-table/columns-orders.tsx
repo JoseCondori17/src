@@ -43,6 +43,25 @@ export const ColumnsOrders: ColumnDef<Order>[] = [
     enableColumnFilter: true,
   },
   {
+    accessorKey: "items",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Items" />
+    ),
+    cell: ({ row }) => {
+      const items: any[] = row.getValue("items");
+      
+      return (
+        <p>{items.length}</p>
+      );
+    },
+    filterFn: (row, id, value) => {
+      const items: any[] = row.getValue(id);
+      
+      const filterValues = value.map((v: any) => v.value);
+      return items.some((item: any) => filterValues.includes(item.productName));
+    },
+  },
+  {
     accessorKey: "paymentMethod",
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Metodo de pago" />

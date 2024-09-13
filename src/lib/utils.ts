@@ -37,7 +37,7 @@ export function getAllOrders(objetos: any[], attribute: string) {
   return objetos.reduce((acc, objeto) => acc.concat(objeto[attribute]), []);
 }
 
-export function saveToExcel(data: any[]) {
+export function cleanData(data: any[]) {
   const fieldnames = ['productName', 'size', 'quantity', 'price', 'subTotal', 'total', 'paymentMethod', 'date', 'time'];
     
   const csvRows = [];

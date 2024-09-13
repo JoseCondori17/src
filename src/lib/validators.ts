@@ -27,12 +27,14 @@ export const NewProductSchema = z.object({
 export const OrderSchema = z.object({
   id: z.number(),
   create_at: z.date(),
-  items: z.object({
-    productName: z.string(),
-    size: z.string(),
-    quantity: z.number(),
-    price: z.number(),
-  }),
+  items: z.array(
+    z.object({
+      productName: z.string(),
+      size: z.string(),
+      quantity: z.number(),
+      price: z.number(),
+    })
+  ),
   subTotal: z.number(),
   total: z.number(),
   paymentMethod: z.string(),
